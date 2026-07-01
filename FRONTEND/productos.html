@@ -1,1 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos | Mi Despensa Virtual</title>
+
+    <link rel="stylesheet" href="../css/estilos.css">
+
+    <style>
+
+        .productos-container{
+            width: 95%;
+            max-width: 1200px;
+            margin: 30px auto;
+        }
+
+        .titulo{
+            text-align:center;
+            color:#2c3e50;
+            margin-bottom:30px;
+        }
+
+        .grid-productos{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+            gap:20px;
+        }
+
+        .producto{
+            background:white;
+            border-radius:10px;
+            padding:20px;
+            box-shadow:0 2px 10px rgba(0,0,0,.15);
+            text-align:center;
+        }
+
+        .producto img{
+            width:100%;
+            height:180px;
+            object-fit:cover;
+            border-radius:8px;
+        }
+
+        .producto h3{
+            margin-top:15px;
+            color:#2c3e50;
+        }
+
+        .categoria{
+            color:#7f8c8d;
+            font-size:14px;
+            margin:5px 0;
+        }
+
+        .marca{
+            color:#7f8c8d;
+            font-size:14px;
+            margin-bottom:10px;
+        }
+
+        .precio{
+            color:#27ae60;
+            font-size:22px;
+            font-weight:bold;
+            margin:10px 0;
+        }
+
+        .stock{
+            margin-bottom:15px;
+        }
+
+        .btn-agregar{
+            width:100%;
+            padding:12px;
+            background:#27ae60;
+            color:white;
+            border:none;
+            border-radius:5px;
+            cursor:pointer;
+            font-weight:bold;
+        }
+
+        .btn-agregar:hover{
+            background:#219150;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+        Mi Despensa Virtual
+    </nav>
+
+    <div class="productos-container">
+
+        <h1 class="titulo">Catálogo de Productos</h1>
+
+        <div class="grid-productos">
+
+            <!-- PRODUCTO 1 -->
+
+            <div class="producto">
+
+                <img src="https://via.placeholder.com/300x180" alt="Arroz">
+
+                <h3>Arroz Diana</h3>
+
+                <p class="categoria">
+                    Categoría: Granos
+                </p>
+
+                <p class="marca">
+                    Marca: Diana
+                </p>
+
+                <p class="precio">
+                    $1.25
+                </p>
+
+                <p class="stock">
+                    Stock: 100
+                </p>
+
+                <button
+                    class="btn-agregar"
+                    onclick="agregarCarrito('Arroz Diana',1.25)">
+                    Agregar al Carrito
+                </button>
+
+            </div>
+
+            <!-- PRODUCTO 2 -->
+
+            <div class="producto">
+
+                <img src="https://via.placeholder.com/300x180" alt="Aceite">
+
+                <h3>Aceite La Favorita</h3>
+
+                <p class="categoria">
+                    Categoría: Aceites
+                </p>
+
+                <p class="marca">
+                    Marca: Favorita
+                </p>
+
+                <p class="precio">
+                    $4.00
+                </p>
+
+                <p class="stock">
+                    Stock: 80
+                </p>
+
+                <button
+                    class="btn-agregar"
+                    onclick="agregarCarrito('Aceite La Favorita',4.00)">
+                    Agregar al Carrito
+                </button>
+
+            </div>
+
+            <!-- PRODUCTO 3 -->
+
+            <div class="producto">
+
+                <img src="https://via.placeholder.com/300x180" alt="Azúcar">
+
+                <h3>Azúcar Valdez</h3>
+
+                <p class="categoria">
+                    Categoría: Endulzantes
+                </p>
+
+                <p class="marca">
+                    Marca: Valdez
+                </p>
+
+                <p class="precio">
+                    $1.80
+                </p>
+
+                <p class="stock">
+                    Stock: 150
+                </p>
+
+                <button
+                    class="btn-agregar"
+                    onclick="agregarCarrito('Azúcar Valdez',1.80)">
+                    Agregar al Carrito
+                </button>
+
+            </div>
+
+            <!-- PRODUCTO 4 -->
+
+            <div class="producto">
+
+                <img src="https://via.placeholder.com/300x180" alt="Leche">
+
+                <h3>Leche Entera</h3>
+
+                <p class="categoria">
+                    Categoría: Lácteos
+                </p>
+
+                <p class="marca">
+                    Marca: Toni
+                </p>
+
+                <p class="precio">
+                    $1.10
+                </p>
+
+                <p class="stock">
+                    Stock: 200
+                </p>
+
+                <button
+                    class="btn-agregar"
+                    onclick="agregarCarrito('Leche Entera',1.10)">
+                    Agregar al Carrito
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        function agregarCarrito(nombre, precio){
+
+            alert(
+                "Producto agregado al carrito:\n\n" +
+                nombre +
+                "\nPrecio: $" +
+                precio.toFixed(2)
+            );
+//CONEXIÓN
+
+        }
+
+    </script>
+
+</body>
+
+</html>
