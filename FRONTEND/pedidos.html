@@ -1,1 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
 
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mis Pedidos | Mi Despensa Virtual</title>
+
+    <link rel="stylesheet" href="../css/estilos.css">
+
+    <style>
+
+        .pedidos-container{
+            width:95%;
+            max-width:1200px;
+            margin:30px auto;
+        }
+
+        .titulo{
+            text-align:center;
+            color:#2c3e50;
+            margin-bottom:30px;
+        }
+
+        .card-resumen{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+            gap:20px;
+            margin-bottom:30px;
+        }
+
+        .resumen-item{
+            background:white;
+            padding:20px;
+            border-radius:10px;
+            box-shadow:0 2px 10px rgba(0,0,0,.15);
+            text-align:center;
+        }
+
+        .resumen-item h3{
+            color:#7f8c8d;
+            font-size:16px;
+        }
+
+        .resumen-item p{
+            margin-top:10px;
+            font-size:24px;
+            font-weight:bold;
+            color:#2c3e50;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+            background:white;
+            border-radius:10px;
+            overflow:hidden;
+            box-shadow:0 2px 10px rgba(0,0,0,.15);
+        }
+
+        th{
+            background:#3498db;
+            color:white;
+            padding:15px;
+        }
+
+        td{
+            padding:15px;
+            text-align:center;
+            border-bottom:1px solid #ddd;
+        }
+
+        .estado{
+            padding:6px 12px;
+            border-radius:20px;
+            color:white;
+            font-size:14px;
+            font-weight:bold;
+        }
+
+        .pendiente{
+            background:#f39c12;
+        }
+
+        .entregado{
+            background:#27ae60;
+        }
+
+        .cancelado{
+            background:#e74c3c;
+        }
+
+        .btn-detalle{
+            background:#3498db;
+            color:white;
+            border:none;
+            padding:8px 12px;
+            border-radius:5px;
+            cursor:pointer;
+        }
+
+        .btn-detalle:hover{
+            background:#2980b9;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+        Mi Despensa Virtual
+    </nav>
+
+    <div class="pedidos-container">
+
+        <h1 class="titulo">
+            Historial de Pedidos
+        </h1>
+
+        <!-- Resumen -->
+
+        <div class="card-resumen">
+
+            <div class="resumen-item">
+                <h3>Total Pedidos</h3>
+                <p>3</p>
+            </div>
+
+            <div class="resumen-item">
+                <h3>Entregados</h3>
+                <p>2</p>
+            </div>
+
+            <div class="resumen-item">
+                <h3>Pendientes</h3>
+                <p>1</p>
+            </div>
+
+        </div>
+
+        <!-- Tabla -->
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>ID Pedido</th>
+                    <th>Fecha</th>
+                    <th>Subtotal</th>
+                    <th>IVA</th>
+                    <th>Total</th>
+                    <th>Estado</th>
+                    <th>Detalle</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+
+                    <td>1001</td>
+                    <td>01/07/2026</td>
+                    <td>$20.00</td>
+                    <td>$3.00</td>
+                    <td>$23.00</td>
+
+                    <td>
+                        <span class="estado entregado">
+                            ENTREGADO
+                        </span>
+                    </td>
+
+                    <td>
+                        <button
+                            class="btn-detalle"
+                            onclick="verDetalle(1001)">
+                            Ver
+                        </button>
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>1002</td>
+                    <td>05/07/2026</td>
+                    <td>$15.00</td>
+                    <td>$2.25</td>
+                    <td>$17.25</td>
+
+                    <td>
+                        <span class="estado pendiente">
+                            PENDIENTE
+                        </span>
+                    </td>
+
+                    <td>
+                        <button
+                            class="btn-detalle"
+                            onclick="verDetalle(1002)">
+                            Ver
+                        </button>
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>1003</td>
+                    <td>08/07/2026</td>
+                    <td>$10.00</td>
+                    <td>$1.50</td>
+                    <td>$11.50</td>
+
+                    <td>
+                        <span class="estado cancelado">
+                            CANCELADO
+                        </span>
+                    </td>
+
+                    <td>
+                        <button
+                            class="btn-detalle"
+                            onclick="verDetalle(1003)">
+                            Ver
+                        </button>
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <script>
+
+        function verDetalle(idPedido){
+
+            alert(
+                "Mostrando detalle del pedido N° " +
+                idPedido
+            );
+
+            /*
+      
+            window.location.href =
+            "detallePedido.html?id=" + idPedido;
+
+            */
+
+        }
+
+    </script>
+
+</body>
+
+</html>
