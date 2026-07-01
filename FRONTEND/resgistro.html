@@ -2,103 +2,226 @@
 <html lang="es">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Registro de Usuario</title>
-  <link rel="stylesheet" href="../css/estilos.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Registro de Usuario | Mi Despensa Virtual</title>
+
+    <link rel="stylesheet" href="../css/estilos.css">
+
 </head>
 
 <body>
-  <nav class="navbar">
-    Mi Despensa Virtual
-</nav>
 
-<div class="container">
+    <nav class="navbar">
+        Mi Despensa Virtual
+    </nav>
 
-    <div class="card">
+    <div class="container">
 
-        <h2>Crear Cuenta</h2>
+        <div class="card">
 
-        <form id="formRegistro">
+            <h2>Crear Cuenta</h2>
 
-            <label>Nombres</label>
-            <input type="text" id="nombres" required>
+            <form id="formRegistro">
 
-            <label>Apellidos</label>
-            <input type="text" id="apellidos" required>
+                <label for="nombres">Nombres</label>
+                <input
+                    type="text"
+                    id="nombres"
+                    placeholder="Ingrese sus nombres"
+                    required>
 
-            <label>Correo Electrónico</label>
-            <input type="email" id="correo" required>
+                <label for="apellidos">Apellidos</label>
+                <input
+                    type="text"
+                    id="apellidos"
+                    placeholder="Ingrese sus apellidos"
+                    required>
 
-            <label>Teléfono</label>
-            <input type="text" id="telefono">
+                <label for="direccion">Dirección</label>
+                <textarea
+                    id="direccion"
+                    placeholder="Ingrese su dirección"
+                    required></textarea>
 
-            <label>Contraseña</label>
-            <input type="password" id="password" required>
+                <label for="telefono">Teléfono</label>
+                <input
+                    type="text"
+                    id="telefono"
+                    placeholder="Ingrese su teléfono"
+                    maxlength="10"
+                    required>
 
-            <label>Confirmar Contraseña</label>
-            <input type="password" id="confirmar" required>
+                <label for="correo">Correo Electrónico</label>
+                <input
+                    type="email"
+                    id="correo"
+                    placeholder="ejemplo@correo.com"
+                    required>
 
-            <button type="submit" class="btn">
-                Registrarse
-            </button>
+                <label for="clave">Contraseña</label>
+                <input
+                    type="password"
+                    id="clave"
+                    placeholder="Mínimo 8 caracteres"
+                    required>
 
-            <p id="mensaje"></p>
+                <label for="confirmar">Confirmar Contraseña</label>
+                <input
+                    type="password"
+                    id="confirmar"
+                    placeholder="Repita la contraseña"
+                    required>
 
-        </form>
+                <div style="margin-top:10px;">
+
+                    <input
+                        type="checkbox"
+                        id="mostrarClave"
+                        style="width:auto;">
+
+                    <label
+                        for="mostrarClave"
+                        style="display:inline;font-weight:normal;">
+                        Mostrar contraseñas
+                    </label>
+
+                </div>
+
+                <button
+                    type="submit"
+                    class="btn">
+                    Registrarse
+                </button>
+
+                <div id="mensaje"></div>
+
+            </form>
+
+            <div style="text-align:center; margin-top:20px;">
+
+                <p>¿Ya tienes una cuenta?</p>
+
+                <a href="login.html">
+                    Iniciar Sesión
+                </a>
+
+            </div>
+
+        </div>
 
     </div>
 
-</div>
+    <script>
 
-<script>
+        const formulario = document.getElementById("formRegistro");
 
-document.getElementById("formRegistro")
-.addEventListener("submit", function(e){
+        const mensaje = document.getElementById("mensaje");
 
-    e.preventDefault();
+        const checkbox = document.getElementById("mostrarClave");
 
-    const nombres = document.getElementById("nombres").value.trim();
-    const apellidos = document.getElementById("apellidos").value.trim();
-    const correo = document.getElementById("correo").value.trim();
-    const password = document.getElementById("password").value;
-    const confirmar = document.getElementById("confirmar").value;
+        const clave = document.getElementById("clave");
 
-    const mensaje = document.getElementById("mensaje");
+        const confirmar = document.getElementById("confirmar");
 
-    mensaje.innerHTML = "";
-    mensaje.className = "";
+        checkbox.addEventListener("change", () => {
 
-    if(nombres.length < 3){
-        mensaje.className = "error";
-        mensaje.innerHTML = "Ingrese nombres válidos.";
-        return;
-    }
+            const tipo = checkbox.checked ? "text" : "password";
 
-    if(apellidos.length < 3){
-        mensaje.className = "error";
-        mensaje.innerHTML = "Ingrese apellidos válidos.";
-        return;
-    }
+            clave.type = tipo;
+            confirmar.type = tipo;
 
-    if(password.length < 8){
-        mensaje.className = "error";
-        mensaje.innerHTML = "La contraseña debe tener al menos 8 caracteres.";
-        return;
-    }
+        });
 
-    if(password !== confirmar){
-        mensaje.className = "error";
-        mensaje.innerHTML = "Las contraseñas no coinciden.";
-        return;
-    }
+        formulario.addEventListener("submit", function (e) {
 
-    mensaje.className = "success";
-    mensaje.innerHTML = "Usuario registrado correctamente.";
+            e.preventDefault();
 
-});
+            mensaje.className = "";
+            mensaje.innerHTML = "";
 
-</script>
+            const nombres = document.getElementById("nombres").value.trim();
+            const apellidos = document.getElementById("apellidos").value.trim();
+            const direccion = document.getElementById("direccion").value.trim();
+            const telefono = document.getElementById("telefono").value.trim();
+            const correo = document.getElementById("correo").value.trim();
+
+            const password = clave.value;
+            const password2 = confirmar.value;
+
+            const regexNombre = /^[A-Za-zÁÉÍÓÚáéíóúÑñ ]+$/;
+
+            const regexTelefono = /^[0-9]{10}$/;
+
+            if (!regexNombre.test(nombres)) {
+
+                mensaje.className = "error";
+                mensaje.innerHTML =
+                    "Ingrese nombres válidos.";
+
+                return;
+            }
+
+            if (!regexNombre.test(apellidos)) {
+
+                mensaje.className = "error";
+                mensaje.innerHTML =
+                    "Ingrese apellidos válidos.";
+
+                return;
+            }
+
+            if (direccion.length < 5) {
+
+                mensaje.className = "error";
+                mensaje.innerHTML =
+                    "Ingrese una dirección válida.";
+
+                return;
+            }
+
+            if (!regexTelefono.test(telefono)) {
+
+                mensaje.className = "error";
+                mensaje.innerHTML =
+                    "El teléfono debe contener 10 dígitos.";
+
+                return;
+            }
+
+            if (password.length < 8) {
+
+                mensaje.className = "error";
+                mensaje.innerHTML =
+                    "La contraseña debe tener al menos 8 caracteres.";
+
+                return;
+            }
+
+            if (password !== password2) {
+
+                mensaje.className = "error";
+                mensaje.innerHTML =
+                    "Las contraseñas no coinciden.";
+
+                return;
+            }
+
+            mensaje.className = "success";
+
+            mensaje.innerHTML =
+                "✅ Usuario registrado correctamente.";
+
+            // CONEXIÓN
+
+            formulario.reset();
+
+        });
+
+    </script>
 
 </body>
+
 </html>
