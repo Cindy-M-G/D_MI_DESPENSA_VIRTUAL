@@ -1,24 +1,183 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
+*/* ===========================
+   RESET GENERAL
+=========================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --color-principal:#2c3e50;
+    --color-secundario:#3498db;
+    --color-hover:#2980b9;
+    --color-fondo:#f4f6f9;
+    --color-texto:#34495e;
+    --color-exito:#155724;
+    --color-error:#721c24;
 }
 
 body{
-    background:#f4f6f9;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--color-fondo);
+    color: var(--color-texto);
 }
 
+/* ===========================
+   NAVBAR
+=========================== */
 .navbar{
-    background:#2c3e50;
-    color:white;
-    padding:15px;
+    background: var(--color-principal);
+    color: white;
+    text-align: center;
+    padding: 18px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* ===========================
+   CONTENEDOR
+=========================== */
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 70px);
+    padding: 20px;
+}
+
+/* ===========================
+   TARJETA
+=========================== */
+.card{
+    width: 100%;
+    max-width: 500px;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,.15);
+}
+
+.card h2{
+    text-align: center;
+    margin-bottom: 25px;
+    color: var(--color-principal);
+}
+
+/* ===========================
+   FORMULARIOS
+=========================== */
+label{
+    display: block;
+    margin-top: 12px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input,
+select,
+textarea{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+textarea{
+    resize: vertical;
+    min-height: 80px;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    outline: none;
+    border-color: var(--color-secundario);
+}
+
+/* ===========================
+   BOTONES
+=========================== */
+.btn{
+    width: 100%;
+    margin-top: 25px;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background: var(--color-secundario);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn:hover{
+    background: var(--color-hover);
+}
+
+.btn-danger{
+    background:#e74c3c;
+}
+
+.btn-success{
+    background:#27ae60;
+}
+
+/* ===========================
+   MENSAJES
+=========================== */
+.error{
+    margin-top:15px;
+    padding:10px;
+    border-radius:5px;
+    background:#f8d7da;
+    border:1px solid #f5c6cb;
+    color:var(--color-error);
     text-align:center;
 }
 
-.container{
-    width:90%;
-    max-width:1000px;
-    margin:auto;
-    margin-top:30px;
+.success{
+    margin-top:15px;
+    padding:10px;
+    border-radius:5px;
+    background:#d4edda;
+    border:1px solid #c3e6cb;
+    color:var(--color-exito);
+    text-align:center;
+}
+
+/* ===========================
+   TABLAS
+=========================== */
+table{
+    width:100%;
+    border-collapse: collapse;
+}
+
+th{
+    background: var(--color-secundario);
+    color:white;
+    padding:12px;
+}
+
+td{
+    padding:12px;
+    border-bottom:1px solid #ddd;
+    text-align:center;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+@media(max-width:600px){
+
+    .card{
+        padding:20px;
+    }
+
+    .navbar{
+        font-size:20px;
+    }
+
 }
