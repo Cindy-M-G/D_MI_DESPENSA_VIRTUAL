@@ -1,1 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
 
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Factura | Mi Despensa Virtual</title>
+
+    <link rel="stylesheet" href="../css/estilos.css">
+
+    <style>
+
+        .factura-container{
+            width:95%;
+            max-width:1000px;
+            margin:30px auto;
+        }
+
+        .factura{
+            background:white;
+            padding:40px;
+            border-radius:10px;
+            box-shadow:0 2px 10px rgba(0,0,0,.15);
+        }
+
+        .encabezado{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            margin-bottom:30px;
+            border-bottom:2px solid #3498db;
+            padding-bottom:20px;
+        }
+
+        .empresa h1{
+            color:#2c3e50;
+            margin-bottom:10px;
+        }
+
+        .empresa p{
+            color:#555;
+        }
+
+        .factura-info{
+            text-align:right;
+        }
+
+        .factura-info h2{
+            color:#3498db;
+        }
+
+        .cliente{
+            margin-bottom:30px;
+        }
+
+        .cliente h3{
+            color:#2c3e50;
+            margin-bottom:10px;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+            margin-bottom:30px;
+        }
+
+        th{
+            background:#3498db;
+            color:white;
+            padding:12px;
+        }
+
+        td{
+            padding:12px;
+            text-align:center;
+            border-bottom:1px solid #ddd;
+        }
+
+        .totales{
+            width:350px;
+            margin-left:auto;
+        }
+
+        .totales table{
+            margin:0;
+        }
+
+        .totales td{
+            text-align:right;
+            font-weight:bold;
+        }
+
+        .acciones{
+            margin-top:30px;
+            display:flex;
+            gap:15px;
+        }
+
+        .btn{
+            flex:1;
+            padding:12px;
+            border:none;
+            border-radius:5px;
+            cursor:pointer;
+            color:white;
+            font-size:16px;
+            font-weight:bold;
+        }
+
+        .btn-imprimir{
+            background:#27ae60;
+        }
+
+        .btn-imprimir:hover{
+            background:#219150;
+        }
+
+        .btn-volver{
+            background:#3498db;
+        }
+
+        .btn-volver:hover{
+            background:#2980b9;
+        }
+
+        @media print{
+
+            .acciones,
+            .navbar{
+                display:none;
+            }
+
+            body{
+                background:white;
+            }
+
+            .factura{
+                box-shadow:none;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+        Mi Despensa Virtual
+    </nav>
+
+    <div class="factura-container">
+
+        <div class="factura">
+
+            <div class="encabezado">
+
+                <div class="empresa">
+
+                    <h1>Mi Despensa Virtual</h1>
+
+                    <p>Quito - Ecuador</p>
+
+                    <p>Teléfono: 0999999999</p>
+
+                    <p>Email: soporte@midespensavirtual.com</p>
+
+                </div>
+
+                <div class="factura-info">
+
+                    <h2>FACTURA</h2>
+
+                    <p><strong>N°:</strong> FAC-000001</p>
+
+                    <p><strong>Fecha:</strong> 01/07/2026</p>
+
+                    <p><strong>Pedido:</strong> #1002</p>
+
+                </div>
+
+            </div>
+
+            <div class="cliente">
+
+                <h3>Datos del Cliente</h3>
+
+                <p><strong>Nombre:</strong> Mirelly Perez</p>
+
+                <p><strong>Correo:</strong> usuario@correo.com</p>
+
+                <p><strong>Dirección:</strong> Quito - Ecuador</p>
+
+                <p><strong>Teléfono:</strong> 0999999999</p>
+
+            </div>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        <th>Precio Unitario</th>
+                        <th>Subtotal</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+
+                        <td>Arroz Diana</td>
+                        <td>2</td>
+                        <td>$1.25</td>
+                        <td>$2.50</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>Aceite La Favorita</td>
+                        <td>1</td>
+                        <td>$4.00</td>
+                        <td>$4.00</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>Azúcar Valdez</td>
+                        <td>3</td>
+                        <td>$1.80</td>
+                        <td>$5.40</td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+            <div class="totales">
+
+                <table>
+
+                    <tr>
+
+                        <td>Subtotal:</td>
+                        <td>$11.90</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>IVA (15%):</td>
+                        <td>$1.79</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>Total:</td>
+                        <td>$13.69</td>
+
+                    </tr>
+
+                </table>
+
+            </div>
+
+            <div class="acciones">
+
+                <button
+                    class="btn btn-imprimir"
+                    onclick="window.print()">
+
+                    Imprimir Factura
+
+                </button>
+
+                <button
+                    class="btn btn-volver"
+                    onclick="window.location.href='productos.html'">
+
+                    Volver a Comprar
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
