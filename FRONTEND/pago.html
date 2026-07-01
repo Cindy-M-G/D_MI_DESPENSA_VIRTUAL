@@ -1,1 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
 
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pago | Mi Despensa Virtual</title>
+
+    <link rel="stylesheet" href="../css/estilos.css">
+
+    <style>
+
+        .pago-container{
+            width:95%;
+            max-width:700px;
+            margin:30px auto;
+        }
+
+        .card{
+            background:white;
+            padding:30px;
+            border-radius:10px;
+            box-shadow:0 2px 10px rgba(0,0,0,.15);
+        }
+
+        .titulo{
+            text-align:center;
+            color:#2c3e50;
+            margin-bottom:25px;
+        }
+
+        .resumen{
+            background:#f8f9fa;
+            padding:20px;
+            border-radius:8px;
+            margin-bottom:25px;
+        }
+
+        .resumen p{
+            margin:8px 0;
+            font-size:16px;
+        }
+
+        select{
+            width:100%;
+            padding:12px;
+            margin-top:5px;
+            border:1px solid #ccc;
+            border-radius:5px;
+            font-size:14px;
+        }
+
+        .btn-pagar{
+            width:100%;
+            margin-top:25px;
+            padding:14px;
+            background:#27ae60;
+            color:white;
+            border:none;
+            border-radius:5px;
+            font-size:16px;
+            font-weight:bold;
+            cursor:pointer;
+        }
+
+        .btn-pagar:hover{
+            background:#219150;
+        }
+
+        #mensaje{
+            margin-top:15px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+        Mi Despensa Virtual
+    </nav>
+
+    <div class="pago-container">
+
+        <div class="card">
+
+            <h2 class="titulo">
+                Confirmación de Pago
+            </h2>
+
+            <div class="resumen">
+
+                <p><strong>Pedido:</strong> #1002</p>
+                <p><strong>Subtotal:</strong> $15.00</p>
+                <p><strong>IVA (15%):</strong> $2.25</p>
+                <p><strong>Total a Pagar:</strong> $17.25</p>
+
+            </div>
+
+            <form id="formPago">
+
+                <label>Método de Pago</label>
+
+                <select id="metodoPago" required>
+
+                    <option value="">
+                        Seleccione una opción
+                    </option>
+
+                    <option value="Transferencia">
+                        Transferencia Bancaria
+                    </option>
+
+                    <option value="Tarjeta">
+                        Tarjeta de Crédito/Débito
+                    </option>
+
+                    <option value="Efectivo">
+                        Pago Contra Entrega
+                    </option>
+
+                </select>
+
+                <label>Número de Referencia</label>
+
+                <input
+                    type="text"
+                    id="referencia"
+                    placeholder="Ingrese referencia de pago">
+
+                <label>Comprobante / Evidencia</label>
+
+                <input
+                    type="file"
+                    id="evidencia">
+
+                <button
+                    type="submit"
+                    class="btn-pagar">
+
+                    Confirmar Pago
+
+                </button>
+
+                <div id="mensaje"></div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        const formulario =
+            document.getElementById("formPago");
+
+        const mensaje =
+            document.getElementById("mensaje");
+
+        formulario.addEventListener("submit", function(e){
+
+            e.preventDefault();
+
+            mensaje.className = "";
+            mensaje.innerHTML = "";
+
+            const metodo =
+                document.getElementById("metodoPago").value;
+
+            if(metodo === ""){
+
+                mensaje.className = "error";
+
+                mensaje.innerHTML =
+                    "Seleccione un método de pago.";
+
+                return;
+
+            }
+
+            mensaje.className = "success";
+
+            mensaje.innerHTML =
+                "✅ Pago registrado correctamente.";
+
+            // Enviar a Flask y Oracle
+
+            setTimeout(() => {
+
+                window.location.href =
+                    "factura.html";
+
+            }, 2000);
+
+        });
+
+    </script>
+
+</body>
+
+</html>
