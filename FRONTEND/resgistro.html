@@ -1,1 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de Usuario</title>
+  <link rel="stylesheet" href="../css/estilos.css">
+</head>
+
+<body>
+  <nav class="navbar">
+    Mi Despensa Virtual
+</nav>
+
+<div class="container">
+
+    <div class="card">
+
+        <h2>Crear Cuenta</h2>
+
+        <form id="formRegistro">
+
+            <label>Nombres</label>
+            <input type="text" id="nombres" required>
+
+            <label>Apellidos</label>
+            <input type="text" id="apellidos" required>
+
+            <label>Correo Electrónico</label>
+            <input type="email" id="correo" required>
+
+            <label>Teléfono</label>
+            <input type="text" id="telefono">
+
+            <label>Contraseña</label>
+            <input type="password" id="password" required>
+
+            <label>Confirmar Contraseña</label>
+            <input type="password" id="confirmar" required>
+
+            <button type="submit" class="btn">
+                Registrarse
+            </button>
+
+            <p id="mensaje"></p>
+
+        </form>
+
+    </div>
+
+</div>
+
+<script>
+
+document.getElementById("formRegistro")
+.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    const nombres = document.getElementById("nombres").value.trim();
+    const apellidos = document.getElementById("apellidos").value.trim();
+    const correo = document.getElementById("correo").value.trim();
+    const password = document.getElementById("password").value;
+    const confirmar = document.getElementById("confirmar").value;
+
+    const mensaje = document.getElementById("mensaje");
+
+    mensaje.innerHTML = "";
+    mensaje.className = "";
+
+    if(nombres.length < 3){
+        mensaje.className = "error";
+        mensaje.innerHTML = "Ingrese nombres válidos.";
+        return;
+    }
+
+    if(apellidos.length < 3){
+        mensaje.className = "error";
+        mensaje.innerHTML = "Ingrese apellidos válidos.";
+        return;
+    }
+
+    if(password.length < 8){
+        mensaje.className = "error";
+        mensaje.innerHTML = "La contraseña debe tener al menos 8 caracteres.";
+        return;
+    }
+
+    if(password !== confirmar){
+        mensaje.className = "error";
+        mensaje.innerHTML = "Las contraseñas no coinciden.";
+        return;
+    }
+
+    mensaje.className = "success";
+    mensaje.innerHTML = "Usuario registrado correctamente.";
+
+});
+
+</script>
+
+</body>
+</html>
