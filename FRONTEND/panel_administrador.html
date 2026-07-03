@@ -1,1 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
 
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Panel Administrador - Mi Despensa Virtual</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f4f6f9;
+}
+
+header{
+
+    background:linear-gradient(
+        90deg,
+        #005bea,
+        #00c6fb
+    );
+
+    color:white;
+    text-align:center;
+    padding:25px;
+
+}
+
+header h1{
+    font-size:35px;
+}
+
+header p{
+    margin-top:8px;
+}
+
+.panel{
+
+    width:95%;
+    max-width:1300px;
+
+    margin:30px auto;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
+
+    gap:15px;
+
+}
+
+.card{
+
+    background:white;
+
+    min-height:220px;
+
+    border-radius:12px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    text-decoration:none;
+
+    color:#003366;
+
+    box-shadow:0 2px 10px rgba(0,0,0,.1);
+
+    transition:.3s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-5px);
+
+    background:#eef8ff;
+
+}
+
+.icono{
+
+    font-size:75px;
+
+    margin-bottom:15px;
+
+}
+
+.titulo{
+
+    font-size:20px;
+
+    font-weight:bold;
+
+    text-align:center;
+
+}
+
+footer{
+
+    margin-top:30px;
+
+    background:#003366;
+
+    color:white;
+
+    text-align:center;
+
+    padding:15px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>Panel de Administración</h1>
+
+    <p>Mi Despensa Virtual</p>
+
+</header>
+
+<div class="panel">
+
+    <a href="clientes.html" class="card">
+
+        <div class="icono">👥</div>
+
+        <div class="titulo">
+            CLIENTES
+        </div>
+
+    </a>
+
+    <a href="productos.html" class="card">
+
+        <div class="icono">📦</div>
+
+        <div class="titulo">
+            PRODUCTOS
+        </div>
+
+    </a>
+
+    <a href="proveedores.html" class="card">
+
+        <div class="icono">🚚</div>
+
+        <div class="titulo">
+            PROVEEDORES
+        </div>
+
+    </a>
+
+    <a href="inventario.html" class="card">
+
+        <div class="icono">🏪</div>
+
+        <div class="titulo">
+            INVENTARIO
+        </div>
+
+    </a>
+
+    <a href="pedidos.html" class="card">
+
+        <div class="icono">📋</div>
+
+        <div class="titulo">
+            PEDIDOS
+        </div>
+
+    </a>
+
+    <a href="reportes.html" class="card">
+
+        <div class="icono">📊</div>
+
+        <div class="titulo">
+            REPORTES
+        </div>
+
+    </a>
+
+    <a href="usuarios.html" class="card">
+
+        <div class="icono">🔐</div>
+
+        <div class="titulo">
+            USUARIOS
+        </div>
+
+    </a>
+
+    <a href="pagos.html" class="card">
+
+        <div class="icono">💳</div>
+
+        <div class="titulo">
+            PAGOS
+        </div>
+
+    </a>
+
+    <a href="facturas.html" class="card">
+
+        <div class="icono">🧾</div>
+
+        <div class="titulo">
+            FACTURAS
+        </div>
+
+    </a>
+
+</div>
+
+<footer>
+
+    © 2026 Mi Despensa Virtual - Grupo D
+
+</footer>
+
+</body>
+
+</html>
