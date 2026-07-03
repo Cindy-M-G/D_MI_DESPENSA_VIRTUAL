@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Clientes - Mi Despensa Virtual</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f4f7fc;
+}
+
+.header{
+    background:linear-gradient(135deg,#005bea,#00c6fb);
+    color:white;
+    padding:20px;
+}
+
+.header h1{
+    text-align:center;
+}
+
+.container{
+    width:95%;
+    margin:30px auto;
+}
+
+.card{
+    background:white;
+    border-radius:15px;
+    padding:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.toolbar{
+    display:flex;
+    gap:10px;
+    margin-bottom:20px;
+}
+
+.btn{
+    border:none;
+    padding:12px 18px;
+    border-radius:8px;
+    cursor:pointer;
+    color:white;
+    font-weight:bold;
+}
+
+.primary{
+    background:#005bea;
+}
+
+.warning{
+    background:#f39c12;
+}
+
+.danger{
+    background:#e74c3c;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th{
+    background:#005bea;
+    color:white;
+    padding:12px;
+}
+
+td{
+    padding:12px;
+    border-bottom:1px solid #ddd;
+    text-align:center;
+}
+
+tr:hover{
+    background:#eef5ff;
+}
+
+.selected{
+    background:#d6e8ff !important;
+}
+
+.modal{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.5);
+}
+
+.modal-content{
+    background:white;
+    width:500px;
+    margin:5% auto;
+    padding:20px;
+    border-radius:15px;
+    position:relative;
+}
+
+.close{
+    position:absolute;
+    right:15px;
+    top:10px;
+    font-size:25px;
+    cursor:pointer;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin-bottom:10px;
+    border:1px solid #ccc;
+    border-radius:8px;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="header">
+    <h1>Mi Despensa Virtual - Clientes</h1>
+</div>
+
+<div class="container">
+
+<div class="card">
+
+<div class="toolbar">
+
+<button class="btn primary" onclick="abrirNuevo()">
+Nuevo Cliente
+</button>
+
+<button class="btn warning" onclick="editarCliente()">
+Editar
+</button>
+
+<button class="btn danger" onclick="eliminarCliente()">
+Eliminar
+</button>
+
+</div>
+
+<table>
+
+<thead>
+<tr>
+<th>ID</th>
+<th>Nombres</th>
+<th>Apellidos</th>
+<th>Dirección</th>
+<th>Teléfono</th>
+<th>Correo</th>
+</tr>
+</thead>
+
+<tbody>
+
+{% for c in clientes %}
+
+<tr onclick="seleccionar(this, {{ c[0] }})">
+
+<td>{{ c[0] }}</td>
+<td>{{ c[1] }}</td>
+<td>{{ c[2] }}</td>
+<td>{{ c[3] }}</td>
+<td>{{ c[4] }}</td>
+<td>{{ c[5] }}</td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+<!-- NUEVO -->
+
+<div class="modal" id="modalNuevo">
+
+<div class="modal-content">
+
+<span class="close" onclick="cerrarNuevo()">&times;</span>
+
+<h2>Nuevo Cliente</h2>
+
+<form action="/clientes/crear" method="POST">
+
+<input type="text" name="nombres" placeholder="Nombres" required>
+
+<input type="text" name="apellidos" placeholder="Apellidos" required>
+
+<input type="text" name="direccion" placeholder="Dirección">
+
+<input type="text" name="telefono" placeholder="Teléfono">
+
+<input type="email" name="correo" placeholder="Correo" required>
+
+<input type="password" name="clave" placeholder="Contraseña" required>
+
+<button class="btn primary">
+Guardar
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+<!-- EDITAR -->
+
+<div class="modal" id="modalEditar">
+
+<div class="modal-content">
+
+<span class="close" onclick="cerrarEditar()">&times;</span>
+
+<h2>Editar Cliente</h2>
+
+<form id="formEditar" method="POST">
+
+<input id="editNombres" name="nombres" required>
+
+<input id="editApellidos" name="apellidos" required>
+
+<input id="editDireccion" name="direccion">
+
+<input id="editTelefono" name="telefono">
+
+<input id="editCorreo" name="correo">
+
+<button class="btn warning">
+Actualizar
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+<script>
+
+let selectedId = null;
+let selectedRow = null;
+
+function seleccionar(row,id){
+
+    if(selectedRow){
+        selectedRow.classList.remove("selected");
+    }
+
+    selectedRow = row;
+    selectedRow.classList.add("selected");
+
+    selectedId = id;
+}
+
+function abrirNuevo(){
+    document.getElementById("modalNuevo").style.display="block";
+}
+
+function cerrarNuevo(){
+    document.getElementById("modalNuevo").style.display="none";
+}
+
+function cerrarEditar(){
+    document.getElementById("modalEditar").style.display="none";
+}
+
+function editarCliente(){
+
+    if(!selectedId){
+        alert("Seleccione un cliente");
+        return;
+    }
+
+    let c = selectedRow.children;
+
+    document.getElementById("editNombres").value = c[1].innerText;
+    document.getElementById("editApellidos").value = c[2].innerText;
+    document.getElementById("editDireccion").value = c[3].innerText;
+    document.getElementById("editTelefono").value = c[4].innerText;
+    document.getElementById("editCorreo").value = c[5].innerText;
+
+    document.getElementById("formEditar").action =
+    "/clientes/editar/" + selectedId;
+
+    document.getElementById("modalEditar").style.display="block";
+}
+
+function eliminarCliente(){
+
+    if(!selectedId){
+        alert("Seleccione un cliente");
+        return;
+    }
+
+    if(confirm("¿Eliminar cliente?")){
+        window.location="/clientes/eliminar/" + selectedId;
+    }
+}
+
+</script>
+
+</body>
+</html>
