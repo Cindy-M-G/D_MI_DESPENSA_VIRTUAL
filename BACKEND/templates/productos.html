@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Dashboard - Mi Despensa Virtual</title>
+<title>Productos</title>
 
 <style>
 
@@ -26,10 +26,6 @@ padding:20px;
 color:white;
 }
 
-header h1{
-font-size:28px;
-}
-
 nav{
 background:white;
 padding:15px;
@@ -48,27 +44,38 @@ font-weight:bold;
 padding:30px;
 }
 
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-}
-
-.card{
+table{
+width:100%;
 background:white;
-padding:25px;
-border-radius:15px;
-box-shadow:0 4px 15px rgba(0,0,0,.1);
+border-collapse:collapse;
+border-radius:10px;
+overflow:hidden;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
 }
 
-.card h3{
-color:#005bea;
-margin-bottom:10px;
+th{
+background:#005bea;
+color:white;
+padding:15px;
 }
 
-.card p{
-font-size:26px;
-font-weight:bold;
+td{
+padding:12px;
+text-align:center;
+border-bottom:1px solid #eee;
+}
+
+tr:hover{
+background:#f3f8ff;
+}
+
+.btn{
+background:#005bea;
+color:white;
+padding:8px 15px;
+border:none;
+border-radius:8px;
+cursor:pointer;
 }
 
 </style>
@@ -78,7 +85,7 @@ font-weight:bold;
 <body>
 
 <header>
-<h1>🛒 Mi Despensa Virtual</h1>
+<h1>📦 Productos Disponibles</h1>
 </header>
 
 <nav>
@@ -97,29 +104,47 @@ font-weight:bold;
 
 <div class="container">
 
-<div class="cards">
+<table>
 
-<div class="card">
-<h3>Productos</h3>
-<p>📦</p>
-</div>
+<tr>
 
-<div class="card">
-<h3>Pedidos</h3>
-<p>🧾</p>
-</div>
+<th>Código</th>
 
-<div class="card">
-<h3>Facturas</h3>
-<p>💳</p>
-</div>
+<th>Producto</th>
 
-<div class="card">
-<h3>Clientes</h3>
-<p>👥</p>
-</div>
+<th>Stock</th>
 
-</div>
+<th>Precio</th>
+
+<th>Acción</th>
+
+</tr>
+
+{% for p in productos %}
+
+<tr>
+
+<td>{{ p[0] }}</td>
+
+<td>{{ p[1] }}</td>
+
+<td>{{ p[2] }}</td>
+
+<td>$ {{ p[3] }}</td>
+
+<td>
+
+<button class="btn">
+Agregar al Carrito
+</button>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
 
 </div>
 
