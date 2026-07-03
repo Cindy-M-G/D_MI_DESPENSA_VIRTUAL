@@ -1,1 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
 
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mi Despensa Virtual - Iniciar Sesión</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:linear-gradient(
+                135deg,
+                #005bea,
+                #00c6fb
+            );
+        }
+
+        .login-container{
+
+            width:400px;
+            background:white;
+            padding:40px;
+            border-radius:15px;
+            box-shadow:0 10px 30px rgba(0,0,0,.2);
+
+        }
+
+        .logo{
+
+            text-align:center;
+            font-size:30px;
+            margin-bottom:15px;
+
+        }
+
+        h1{
+
+            text-align:center;
+            color:#0d3b66;
+            margin-bottom:10px;
+
+        }
+
+        .subtitulo{
+
+            text-align:center;
+            color:#666;
+            margin-bottom:30px;
+
+        }
+
+        label{
+
+            display:block;
+            margin-bottom:8px;
+            font-weight:bold;
+            color:#333;
+
+        }
+
+        input,
+        select{
+
+            width:100%;
+            padding:12px;
+            margin-bottom:20px;
+            border:1px solid #ccc;
+            border-radius:8px;
+            font-size:16px;
+
+        }
+
+        .btn-login{
+
+            width:100%;
+            padding:14px;
+            border:none;
+            border-radius:8px;
+            background:linear-gradient(
+                45deg,
+                #005bea,
+                #00c6fb
+            );
+
+            color:white;
+            font-size:17px;
+            font-weight:bold;
+            cursor:pointer;
+            transition:.3s;
+
+        }
+
+        .btn-login:hover{
+
+            transform:translateY(-2px);
+
+        }
+
+        .registro{
+
+            margin-top:20px;
+            text-align:center;
+
+        }
+
+        .registro a{
+
+            text-decoration:none;
+            color:#005bea;
+            font-weight:bold;
+
+        }
+
+        .registro a:hover{
+
+            text-decoration:underline;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="login-container">
+
+        <div class="logo">
+            🛒
+        </div>
+
+        <h1>Mi Despensa Virtual</h1>
+
+        <p class="subtitulo">
+            Inicia sesión para continuar
+        </p>
+
+        <form action="#" method="post">
+
+            <label>Correo Electrónico</label>
+
+            <input
+                type="email"
+                name="correo"
+                placeholder="Ingrese su correo"
+                required
+            >
+
+            <label>Contraseña</label>
+
+            <input
+                type="password"
+                name="clave"
+                placeholder="Ingrese su contraseña"
+                required
+            >
+
+            <label>Tipo de Usuario</label>
+
+            <select name="rol" required>
+
+                <option value="">
+                    Seleccione una opción
+                </option>
+
+                <option value="CLIENTE">
+                    Cliente
+                </option>
+
+                <option value="ADMIN">
+                    Administrador
+                </option>
+
+            </select>
+
+            <button
+                type="submit"
+                class="btn-login">
+
+                Iniciar Sesión
+
+            </button>
+
+        </form>
+
+        <div class="registro">
+
+            ¿No tienes cuenta?
+
+            <a href="registro.html">
+                Registrarse
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
