@@ -6,221 +6,220 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Registro de Usuario | Mi Despensa Virtual</title>
+    <title>Registro - Mi Despensa Virtual</title>
 
-    <link rel="stylesheet" href="../css/estilos.css">
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:linear-gradient(
+                135deg,
+                #005bea,
+                #00c6fb
+            );
+            padding:20px;
+        }
+
+        .registro-container{
+
+            width:500px;
+            background:white;
+            padding:40px;
+            border-radius:15px;
+            box-shadow:0 10px 30px rgba(0,0,0,.2);
+
+        }
+
+        .logo{
+
+            text-align:center;
+            font-size:35px;
+            margin-bottom:10px;
+
+        }
+
+        h1{
+
+            text-align:center;
+            color:#0d3b66;
+            margin-bottom:10px;
+
+        }
+
+        .subtitulo{
+
+            text-align:center;
+            color:#666;
+            margin-bottom:25px;
+
+        }
+
+        label{
+
+            display:block;
+            margin-bottom:8px;
+            font-weight:bold;
+            color:#333;
+
+        }
+
+        input{
+
+            width:100%;
+            padding:12px;
+            margin-bottom:18px;
+            border:1px solid #ccc;
+            border-radius:8px;
+            font-size:15px;
+
+        }
+
+        .btn-registrar{
+
+            width:100%;
+            padding:14px;
+            border:none;
+            border-radius:8px;
+            background:linear-gradient(
+                45deg,
+                #005bea,
+                #00c6fb
+            );
+
+            color:white;
+            font-size:17px;
+            font-weight:bold;
+            cursor:pointer;
+            transition:.3s;
+
+        }
+
+        .btn-registrar:hover{
+
+            transform:translateY(-2px);
+
+        }
+
+        .volver{
+
+            margin-top:20px;
+            text-align:center;
+
+        }
+
+        .volver a{
+
+            color:#005bea;
+            text-decoration:none;
+            font-weight:bold;
+
+        }
+
+        .volver a:hover{
+
+            text-decoration:underline;
+
+        }
+
+    </style>
 
 </head>
 
 <body>
 
-    <nav class="navbar">
-        Mi Despensa Virtual
-    </nav>
+    <div class="registro-container">
 
-    <div class="container">
+        <div class="logo">
+            🛒
+        </div>
 
-        <div class="card">
+        <h1>Crear Cuenta</h1>
 
-            <h2>Crear Cuenta</h2>
+        <p class="subtitulo">
+            Regístrate en Mi Despensa Virtual
+        </p>
 
-            <form id="formRegistro">
+        <form action="#" method="post">
 
-                <label for="nombres">Nombres</label>
-                <input
-                    type="text"
-                    id="nombres"
-                    placeholder="Ingrese sus nombres"
-                    required>
+            <label>Nombres</label>
+            <input
+                type="text"
+                name="nombres"
+                placeholder="Ingrese sus nombres"
+                required
+            >
 
-                <label for="apellidos">Apellidos</label>
-                <input
-                    type="text"
-                    id="apellidos"
-                    placeholder="Ingrese sus apellidos"
-                    required>
+            <label>Apellidos</label>
+            <input
+                type="text"
+                name="apellidos"
+                placeholder="Ingrese sus apellidos"
+                required
+            >
 
-                <label for="direccion">Dirección</label>
-                <textarea
-                    id="direccion"
-                    placeholder="Ingrese su dirección"
-                    required></textarea>
+            <label>Dirección</label>
+            <input
+                type="text"
+                name="direccion"
+                placeholder="Ingrese su dirección"
+                required
+            >
 
-                <label for="telefono">Teléfono</label>
-                <input
-                    type="text"
-                    id="telefono"
-                    placeholder="Ingrese su teléfono"
-                    maxlength="10"
-                    required>
+            <label>Teléfono</label>
+            <input
+                type="text"
+                name="telefono"
+                placeholder="Ingrese su teléfono"
+                required
+            >
 
-                <label for="correo">Correo Electrónico</label>
-                <input
-                    type="email"
-                    id="correo"
-                    placeholder="ejemplo@correo.com"
-                    required>
+            <label>Correo Electrónico</label>
+            <input
+                type="email"
+                name="correo"
+                placeholder="Ingrese su correo"
+                required
+            >
 
-                <label for="clave">Contraseña</label>
-                <input
-                    type="password"
-                    id="clave"
-                    placeholder="Mínimo 8 caracteres"
-                    required>
+            <label>Contraseña</label>
+            <input
+                type="password"
+                name="clave"
+                placeholder="Cree una contraseña"
+                required
+            >
 
-                <label for="confirmar">Confirmar Contraseña</label>
-                <input
-                    type="password"
-                    id="confirmar"
-                    placeholder="Repita la contraseña"
-                    required>
+            <button
+                type="submit"
+                class="btn-registrar">
 
-                <div style="margin-top:10px;">
+                Registrarse
 
-                    <input
-                        type="checkbox"
-                        id="mostrarClave"
-                        style="width:auto;">
+            </button>
 
-                    <label
-                        for="mostrarClave"
-                        style="display:inline;font-weight:normal;">
-                        Mostrar contraseñas
-                    </label>
+        </form>
 
-                </div>
+        <div class="volver">
 
-                <button
-                    type="submit"
-                    class="btn">
-                    Registrarse
-                </button>
+            ¿Ya tienes cuenta?
 
-                <div id="mensaje"></div>
-
-            </form>
-
-            <div style="text-align:center; margin-top:20px;">
-
-                <p>¿Ya tienes una cuenta?</p>
-
-                <a href="login.html">
-                    Iniciar Sesión
-                </a>
-
-            </div>
+            <a href="index.html">
+                Iniciar Sesión
+            </a>
 
         </div>
 
     </div>
-
-    <script>
-
-        const formulario = document.getElementById("formRegistro");
-
-        const mensaje = document.getElementById("mensaje");
-
-        const checkbox = document.getElementById("mostrarClave");
-
-        const clave = document.getElementById("clave");
-
-        const confirmar = document.getElementById("confirmar");
-
-        checkbox.addEventListener("change", () => {
-
-            const tipo = checkbox.checked ? "text" : "password";
-
-            clave.type = tipo;
-            confirmar.type = tipo;
-
-        });
-
-        formulario.addEventListener("submit", function (e) {
-
-            e.preventDefault();
-
-            mensaje.className = "";
-            mensaje.innerHTML = "";
-
-            const nombres = document.getElementById("nombres").value.trim();
-            const apellidos = document.getElementById("apellidos").value.trim();
-            const direccion = document.getElementById("direccion").value.trim();
-            const telefono = document.getElementById("telefono").value.trim();
-            const correo = document.getElementById("correo").value.trim();
-
-            const password = clave.value;
-            const password2 = confirmar.value;
-
-            const regexNombre = /^[A-Za-zÁÉÍÓÚáéíóúÑñ ]+$/;
-
-            const regexTelefono = /^[0-9]{10}$/;
-
-            if (!regexNombre.test(nombres)) {
-
-                mensaje.className = "error";
-                mensaje.innerHTML =
-                    "Ingrese nombres válidos.";
-
-                return;
-            }
-
-            if (!regexNombre.test(apellidos)) {
-
-                mensaje.className = "error";
-                mensaje.innerHTML =
-                    "Ingrese apellidos válidos.";
-
-                return;
-            }
-
-            if (direccion.length < 5) {
-
-                mensaje.className = "error";
-                mensaje.innerHTML =
-                    "Ingrese una dirección válida.";
-
-                return;
-            }
-
-            if (!regexTelefono.test(telefono)) {
-
-                mensaje.className = "error";
-                mensaje.innerHTML =
-                    "El teléfono debe contener 10 dígitos.";
-
-                return;
-            }
-
-            if (password.length < 8) {
-
-                mensaje.className = "error";
-                mensaje.innerHTML =
-                    "La contraseña debe tener al menos 8 caracteres.";
-
-                return;
-            }
-
-            if (password !== password2) {
-
-                mensaje.className = "error";
-                mensaje.innerHTML =
-                    "Las contraseñas no coinciden.";
-
-                return;
-            }
-
-            mensaje.className = "success";
-
-            mensaje.innerHTML =
-                "✅ Usuario registrado correctamente.";
-
-            // CONEXIÓN
-
-            formulario.reset();
-
-        });
-
-    </script>
 
 </body>
 
