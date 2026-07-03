@@ -6,112 +6,129 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Mi Despensa Virtual</title>
-
-    <link rel="stylesheet" href="../css/estilos.css">
+    <title>Mi Despensa Virtual - Iniciar Sesión</title>
 
     <style>
 
-        .hero{
-            min-height:90vh;
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            height:100vh;
             display:flex;
             justify-content:center;
             align-items:center;
-            text-align:center;
-            padding:40px;
+            background:linear-gradient(
+                135deg,
+                #005bea,
+                #00c6fb
+            );
         }
 
-        .hero-content{
-            max-width:800px;
-        }
+        .login-container{
 
-        .hero h1{
-            font-size:48px;
-            color:#2c3e50;
-            margin-bottom:20px;
-        }
-
-        .hero p{
-            font-size:20px;
-            color:#555;
-            margin-bottom:30px;
-            line-height:1.6;
-        }
-
-        .botones{
-            display:flex;
-            justify-content:center;
-            gap:15px;
-            flex-wrap:wrap;
-        }
-
-        .btn-principal{
-            padding:15px 30px;
-            background:#3498db;
-            color:white;
-            text-decoration:none;
-            border-radius:8px;
-            font-size:18px;
-            font-weight:bold;
-            transition:0.3s;
-        }
-
-        .btn-principal:hover{
-            background:#2980b9;
-        }
-
-        .btn-secundario{
-            padding:15px 30px;
-            background:#27ae60;
-            color:white;
-            text-decoration:none;
-            border-radius:8px;
-            font-size:18px;
-            font-weight:bold;
-            transition:0.3s;
-        }
-
-        .btn-secundario:hover{
-            background:#219150;
-        }
-
-        .beneficios{
+            width:400px;
             background:white;
-            padding:60px 20px;
+            padding:40px;
+            border-radius:15px;
+            box-shadow:0 10px 30px rgba(0,0,0,.2);
+
         }
 
-        .beneficios h2{
+        .logo{
+
             text-align:center;
-            color:#2c3e50;
-            margin-bottom:40px;
+            font-size:30px;
+            margin-bottom:15px;
+
         }
 
-        .cards{
-            display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-            gap:20px;
-            max-width:1200px;
-            margin:auto;
-        }
+        h1{
 
-        .card-beneficio{
-            background:#f8f9fa;
-            padding:25px;
-            border-radius:10px;
             text-align:center;
-            box-shadow:0 2px 10px rgba(0,0,0,.1);
-        }
-
-        .card-beneficio h3{
-            color:#3498db;
+            color:#0d3b66;
             margin-bottom:10px;
+
         }
 
-        footer{
-            background:#2c3e50;
-            color:white;
+        .subtitulo{
+
             text-align:center;
-            padding:20px;
+            color:#666;
+            margin-bottom:30px;
+
+        }
+
+        label{
+
+            display:block;
+            margin-bottom:8px;
+            font-weight:bold;
+            color:#333;
+
+        }
+
+        input,
+        select{
+
+            width:100%;
+            padding:12px;
+            margin-bottom:20px;
+            border:1px solid #ccc;
+            border-radius:8px;
+            font-size:16px;
+
+        }
+
+        .btn-login{
+
+            width:100%;
+            padding:14px;
+            border:none;
+            border-radius:8px;
+            background:linear-gradient(
+                45deg,
+                #005bea,
+                #00c6fb
+            );
+
+            color:white;
+            font-size:17px;
+            font-weight:bold;
+            cursor:pointer;
+            transition:.3s;
+
+        }
+
+        .btn-login:hover{
+
+            transform:translateY(-2px);
+
+        }
+
+        .registro{
+
+            margin-top:20px;
+            text-align:center;
+
+        }
+
+        .registro a{
+
+            text-decoration:none;
+            color:#005bea;
+            font-weight:bold;
+
+        }
+
+        .registro a:hover{
+
+            text-decoration:underline;
+
         }
 
     </style>
@@ -120,106 +137,77 @@
 
 <body>
 
-    <nav class="navbar">
-        Mi Despensa Virtual
-    </nav>
+    <div class="login-container">
 
-    <section class="hero">
+        <div class="logo">
+            🛒
+        </div>
 
-        <div class="hero-content">
+        <h1>Mi Despensa Virtual</h1>
 
-            <h1>Bienvenido a Mi Despensa Virtual</h1>
+        <p class="subtitulo">
+            Inicia sesión para continuar
+        </p>
 
-            <p>
+        <form action="#" method="post">
 
-                Plataforma web diseñada para facilitar la compra
-                de productos de primera necesidad desde cualquier lugar,
-                permitiendo realizar pedidos, pagos y seguimiento de compras
-                de forma rápida y segura.
+            <label>Correo Electrónico</label>
 
-            </p>
+            <input
+                type="email"
+                name="correo"
+                placeholder="Ingrese su correo"
+                required
+            >
 
-            <div class="botones">
+            <label>Contraseña</label>
 
-                <a href="login.html" class="btn-principal">
-                    Iniciar Sesión
-                </a>
+            <input
+                type="password"
+                name="clave"
+                placeholder="Ingrese su contraseña"
+                required
+            >
 
-                <a href="registro.html" class="btn-secundario">
-                    Registrarse
-                </a>
+            <label>Tipo de Usuario</label>
 
-                <a href="productos.html" class="btn-principal">
-                    Ver Productos
-                </a>
+            <select name="rol" required>
 
-            </div>
+                <option value="">
+                    Seleccione una opción
+                </option>
+
+                <option value="CLIENTE">
+                    Cliente
+                </option>
+
+                <option value="ADMIN">
+                    Administrador
+                </option>
+
+            </select>
+
+            <button
+                type="submit"
+                class="btn-login">
+
+                Iniciar Sesión
+
+            </button>
+
+        </form>
+
+        <div class="registro">
+
+            ¿No tienes cuenta?
+
+            <a href="registro.html">
+                Registrarse
+            </a>
 
         </div>
 
-    </section>
-
-    <section class="beneficios">
-
-        <h2>¿Por qué elegir Mi Despensa Virtual?</h2>
-
-        <div class="cards">
-
-            <div class="card-beneficio">
-
-                <h3>Compras Rápidas</h3>
-
-                <p>
-                    Realiza pedidos en pocos minutos desde cualquier dispositivo.
-                </p>
-
-            </div>
-
-            <div class="card-beneficio">
-
-                <h3>Entrega Segura</h3>
-
-                <p>
-                    Seguimiento y control de pedidos hasta la entrega final.
-                </p>
-
-            </div>
-
-            <div class="card-beneficio">
-
-                <h3>Pagos Confiables</h3>
-
-                <p>
-                    Diferentes métodos de pago para mayor comodidad.
-                </p>
-
-            </div>
-
-            <div class="card-beneficio">
-
-                <h3>Productos de Calidad</h3>
-
-                <p>
-                    Amplio catálogo de productos organizados por categorías.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <footer>
-
-        <p>
-            © 2026 Mi Despensa Virtual - Grupo D
-        </p>
-
-        <p>
-            Sistema Web de Gestión de Compras e Inventario
-        </p>
-
-    </footer>
+    </div>
 
 </body>
 
