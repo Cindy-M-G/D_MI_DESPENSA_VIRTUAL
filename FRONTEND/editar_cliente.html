@@ -1,0 +1,13 @@
+<form action="/actualizar_cliente" method="post">
+
+<input type="hidden" name="id" value="{{ cliente[0] }}">
+
+<input type="text" name="nombres" value="{{ cliente[1] }}">
+<input type="text" name="apellidos" value="{{ cliente[2] }}">
+<input type="text" name="direccion" value="{{ cliente[3] }}">
+<input type="text" name="telefono" value="{{ cliente[4] }}">
+<input type="email" name="correo" value="{{ cliente[5] }}">
+
+<button type="submit">Actualizar</button>
+
+</form>
