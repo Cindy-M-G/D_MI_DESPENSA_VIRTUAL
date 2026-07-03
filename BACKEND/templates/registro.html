@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Registro - Mi Despensa Virtual</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:linear-gradient(
+                135deg,
+                #005bea,
+                #00c6fb
+            );
+            padding:20px;
+        }
+
+        .registro-container{
+
+            width:500px;
+            background:white;
+            padding:40px;
+            border-radius:15px;
+            box-shadow:0 10px 30px rgba(0,0,0,.2);
+
+        }
+
+        .logo{
+
+            text-align:center;
+            font-size:35px;
+            margin-bottom:10px;
+
+        }
+
+        h1{
+
+            text-align:center;
+            color:#0d3b66;
+            margin-bottom:10px;
+
+        }
+
+        .subtitulo{
+
+            text-align:center;
+            color:#666;
+            margin-bottom:25px;
+
+        }
+
+        label{
+
+            display:block;
+            margin-bottom:8px;
+            font-weight:bold;
+            color:#333;
+
+        }
+
+        input{
+
+            width:100%;
+            padding:12px;
+            margin-bottom:18px;
+            border:1px solid #ccc;
+            border-radius:8px;
+            font-size:15px;
+
+        }
+
+        .btn-registrar{
+
+            width:100%;
+            padding:14px;
+            border:none;
+            border-radius:8px;
+            background:linear-gradient(
+                45deg,
+                #005bea,
+                #00c6fb
+            );
+
+            color:white;
+            font-size:17px;
+            font-weight:bold;
+            cursor:pointer;
+            transition:.3s;
+
+        }
+
+        .btn-registrar:hover{
+
+            transform:translateY(-2px);
+
+        }
+
+        .volver{
+
+            margin-top:20px;
+            text-align:center;
+
+        }
+
+        .volver a{
+
+            color:#005bea;
+            text-decoration:none;
+            font-weight:bold;
+
+        }
+
+        .volver a:hover{
+
+            text-decoration:underline;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="registro-container">
+
+        <div class="logo">
+            🛒
+        </div>
+
+        <h1>Crear Cuenta</h1>
+
+        <p class="subtitulo">
+            Regístrate en Mi Despensa Virtual
+        </p>
+
+        <form action="#" method="post">
+
+            <label>Nombres</label>
+            <input
+                type="text"
+                name="nombres"
+                placeholder="Ingrese sus nombres"
+                required
+            >
+
+            <label>Apellidos</label>
+            <input
+                type="text"
+                name="apellidos"
+                placeholder="Ingrese sus apellidos"
+                required
+            >
+
+            <label>Dirección</label>
+            <input
+                type="text"
+                name="direccion"
+                placeholder="Ingrese su dirección"
+                required
+            >
+
+            <label>Teléfono</label>
+            <input
+                type="text"
+                name="telefono"
+                placeholder="Ingrese su teléfono"
+                required
+            >
+
+            <label>Correo Electrónico</label>
+            <input
+                type="email"
+                name="correo"
+                placeholder="Ingrese su correo"
+                required
+            >
+
+            <label>Contraseña</label>
+            <input
+                type="password"
+                name="clave"
+                placeholder="Cree una contraseña"
+                required
+            >
+
+            <button
+                type="submit"
+                class="btn-registrar">
+
+                Registrarse
+
+            </button>
+
+        </form>
+
+        <div class="volver">
+
+            ¿Ya tienes cuenta?
+
+            <a href="index.html">
+                Iniciar Sesión
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
